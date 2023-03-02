@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} {% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+    {% comment %}
+	    <link rel="stylesheet" href="lib/tpicker.css">
+	    <script type="text/javascript" src="lib/tpicker.js"></script>
+    {% endcomment %}
+
+
+
+{% comment %}
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+{% endcomment %}
+ 
+  </head>
+  <body>
+  <div class="bg-primary bg-gradient" background-image: var(--bs-gradient); >
+    <nav class="navbar navbar-expand-lg " >
+      
+        <div class="container-fluid" >
+{% comment %}
+	
+		          <a class="navbar-brand"  href="/">SRMIST</a>
+		
+	         <img class="navbar-brand" src="/static/srm-logo.svg">
+{% endcomment %}
+
+{% comment %}
+	<a href="#" class="navbar-brand">
+	    <!-- Logo Image -->
+	    <img src='/static/srm-logo-modified.svg'  alt="" class="d-inline-block align-left mr-2 my-0 py-0">
+	</a>
+{% endcomment %}
+
+<!-- Image and text -->
+    <a class="navbar-brand" href="#">
+      <img src="/static/srm-logo-modified.svg" width="50" height="50" class="d-inline-block align-middle" alt="">
+      SRM
+    </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Stationary</a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Canteen
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/yellowcanteen">Yellow Canteen</a></li>
+                  <li><a class="dropdown-item" href="/redcanteen">Red Canteen</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/restaurant">Restaurant</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Stationary
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/printout">Printout</a></li>
+{% comment %}
+	                  <li><a class="dropdown-item" href="/spiral">Spiral</a></li>
+	
+{% endcomment %}                  <!-- <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Stationary</a></li> -->
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success mx-3" type="submit">Search</button>
+            </form>
+ {% comment %}
+	             <button class="btn btn-outline-success" href="/logout">logout </button>
+	
+{% endcomment %}
+                <a class="btn btn-danger" href="/logout" role="button" >LOGOUT</a>
+                <a class="btn btn-warning mx-3" href="/profile" role="button" >My Profile</a>
+                
+            </div>
+        </div>
+    </nav>
+  </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show my-0" role="alert">
+      {{message}} 
+      <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {%endif%}
+
+
+    {% block body %}{% endblock body %}
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  
+    </body>
+</html>
